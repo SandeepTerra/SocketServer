@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <script src="/socket.io/socket.io.js"></script>
+
+    <script>
+        //var mydata = JSON.parse(data);
+        var latlng = { lat: 2, lng: 2 };
+
+        var socket = io.connect("http://localhost:3000");
+        socket.emit("coordinates", latlng);
+
+        var urls = ["google.com", "microsoft.com"];
+        socket.emit("gshops", urls);
+        socket.on("hello", (arg) => {
+            console.log(arg);
+        });
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
